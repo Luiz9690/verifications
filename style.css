@@ -1,0 +1,231 @@
+:root {
+    --primary: #5865F2;
+    --success: #57F287;
+    --error: #ED4245;
+    --bg-dark: #0f1014;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+    --text: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg-dark);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--text);
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    filter: blur(150px);
+    top: 10%;
+    left: 10%;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: purple;
+    filter: blur(150px);
+    bottom: 10%;
+    right: 10%;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #fff, #bbb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+}
+
+.content {
+    margin: 40px 0;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.state.active {
+    display: flex;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fade-text {
+    font-weight: 300;
+    font-size: 14px;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: var(--success);
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke: var(--success);
+    stroke-width: 3;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.check-icon svg {
+    width: 64px;
+    height: 64px;
+}
+
+#success-state h2 {
+    color: var(--success);
+    margin: 15px 0 10px;
+}
+
+#success-state p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.btn-close,
+.btn-retry {
+    margin-top: 25px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-close:hover {
+    transform: scale(1.05);
+    background: #4752c4;
+}
+
+.footer {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.footer p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.3);
+}
