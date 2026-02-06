@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Segurança | Autoral Apps</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn.discordapp.com/emojis/1239295767912366161.webp" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-card" id="card">
+            <div class="header">
+                <div class="logo-container">
+                    <img src="https://cdn.discordapp.com/emojis/1336145291628433541.gif" alt="Logo" class="logo">
+                </div>
+                <h1>Autoral Apps</h1>
+                <p id="status-textText">Iniciando Processo de Segurança...</p>
+            </div>
+
+            <div class="content">
+                <div id="loader-state" class="state active">
+                    <div class="spinner"></div>
+                    <p class="fade-text">Comunicando com o sistema central...</p>
+                </div>
+
+                <div id="success-state" class="state">
+                    <div class="check-icon">
+                        <svg viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+                    <h2>Verificado com Sucesso!</h2>
+                    <p>Sua identidade foi confirmada. Você já pode fechar esta aba e voltar ao Discord.</p>
+                    <button class="btn-close" onclick="window.close()">Fechar Janela</button>
+                </div>
+
+                <div id="error-state" class="state">
+                    <div class="error-icon">❌</div>
+                    <h2>Ocorreu um Erro</h2>
+                    <p id="error-message">Não conseguimos processar sua verificação.</p>
+                    <button class="btn-retry" onclick="location.reload()">Tentar Novamente</button>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>© 2026 Autoral Apps • Segurança Criptografada</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
